@@ -1,0 +1,507 @@
+<!--
+=========================================================
+* Material Dashboard 2 - v3.0.4
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <title>
+        Material Dashboard 2 by Creative Tim
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"/>
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet"/>
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link href="../assets/css/pds.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet"/>
+
+
+</head>
+<style>
+    #assignment-container {
+        border-radius: 1rem;
+        border: 0.125rem solid #DEE2E8;
+        background: #FFF
+    }
+
+    #assignment-header {
+        display: flex;
+        padding: 1.5rem 1rem;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    #markdown-row {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        gap: 1rem;
+        min-height: 600px;
+    }
+
+    #success-row {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        gap: 1rem;
+        min-height: 100px;
+    }
+
+    #failure-row {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        gap: 1rem;
+        min-height: 100px;
+    }
+
+    .CodeMirror {
+        height: 100% !important;
+        max-height: 600px;
+    }
+
+    #markdown-preview {
+        height: 100% !important;
+        max-height: 600px;
+    }
+
+    #success-preview {
+        height: 100% !important;
+        max-height: 100px;
+    }
+
+    #failure-preview {
+        height: 100% !important;
+        max-height: 100px;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"
+        integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"
+      integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/markdown/markdown.js"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"
+        integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function () {
+        const showdownOptions = {
+            tables: true,
+            emoji: true,
+            tasklists: true,
+            strikethrough: true,
+            parseImgDimensions: true,
+            openLinksInNewWindow: true
+        }
+        const converter = new showdown.Converter(showdownOptions);
+
+        const codeMirrorConfig = {
+            lineNumbers: true,
+            mode: "text/x-markdown",
+            lineWrapping: true,
+            indentWithTabs: true,
+            lineWiseCopyCut: true,
+            autoCloseBrackets: true,
+        }
+        const instructionsTextArea = document.getElementById("instructions-editor");
+        const instructionsCodeMirror = CodeMirror(function (elt) {
+            instructionsTextArea.parentNode.replaceChild(elt, instructionsTextArea);
+        }, codeMirrorConfig);
+        instructionsCodeMirror.on('change', editor => {
+            let html = converter.makeHtml(editor.getValue());
+            const regex = /<table>/g;
+            html = html.replace(regex, '<table class="table table-striped table-sm">');
+            document.getElementById("markdown-preview").innerHTML = `<div class="class table-responsive" style="width: auto; max-height: 600px">${html}</div>`
+        })
+        instructionsCodeMirror.setSize('100%');
+
+        const successTextArea = document.getElementById("success-editor");
+        const successCodeMirror = CodeMirror(function (elt) {
+            successTextArea.parentNode.replaceChild(elt, successTextArea);
+        }, codeMirrorConfig);
+        successCodeMirror.on('change', editor => {
+            let html = converter.makeHtml(editor.getValue());
+            const regex = /<table>/g;
+            html = html.replace(regex, '<table class="table table-striped table-sm">');
+            document.getElementById("success-preview").innerHTML = `<div class="class table-responsive" style="width: auto; max-height: 600px">${html}</div>`
+        })
+        successCodeMirror.setSize('100%');
+
+        const failureTextArea = document.getElementById("failure-editor");
+        const failureCodeMirror = CodeMirror(function (elt) {
+            failureTextArea.parentNode.replaceChild(elt, failureTextArea);
+        }, codeMirrorConfig);
+        failureCodeMirror.on('change', editor => {
+            let html = converter.makeHtml(editor.getValue());
+            const regex = /<table>/g;
+            html = html.replace(regex, '<table class="table table-striped table-sm">');
+            document.getElementById("failure-preview").innerHTML = `<div class="class table-responsive" style="width: auto; max-height: 600px">${html}</div>`
+        })
+        failureCodeMirror.setSize('100%');
+
+        $("#edit-assignment").submit(function (eventObj) {
+            eventObj.preventDefault()
+            $("<input />")
+                .attr("name", "instructions")
+                .attr("type", "hidden")
+                .val(instructionsCodeMirror.getValue())
+                .appendTo(this);
+            $("<input />")
+                .attr("name", "success-message")
+                .attr("type", "hidden")
+                .val(successCodeMirror.getValue())
+                .appendTo(this);
+            $("<input />")
+                .attr("name", "failure-message")
+                .attr("type", "hidden")
+                .val(failureCodeMirror.getValue())
+                .appendTo(this);
+            this.submit()
+        });
+
+        function hideSection(sectionName) {
+            const divsToHide = document.getElementsByClassName(sectionName); //divsToHide is an array
+            for (let i = 0; i < divsToHide.length; i++) {
+                divsToHide[i].style.display = "none"; // depending on what you're doing
+                divsToHide[i].style.visibility = "hidden"; // or
+            }
+        }
+
+        function showSection(sectionName) {
+            const divsToHide = document.getElementsByClassName(sectionName);
+            for (let i = 0; i < divsToHide.length; i++) {
+                console.log(divsToHide[i])
+                if (divsToHide[i].id === "markdown-row" || divsToHide[i].id === "success-row" || divsToHide[i].id === "failure-row") {
+                    divsToHide[i].style.display = "flex";
+                } else {
+                    divsToHide[i].style.display = "inline";
+                }
+
+                divsToHide[i].style.visibility = "visible";
+            }
+        }
+
+        if ($('#sc-codes').is(':checked')) {
+            hideSection("instructions")
+            showSection("codes")
+        } else {
+            hideSection("codes")
+            showSection("instructions")
+        }
+        $('input[type=radio][name=sc]').change(function () {
+            if (this.value === 'sc-codes') {
+                hideSection("instructions")
+                showSection("codes")
+            } else if (this.value === 'sc-instructions') {
+                hideSection("codes")
+                showSection("instructions")
+            }
+        });
+
+    });
+</script>
+<script>
+    $('#delete-confirm').on('click', async function () {
+        $('#deleteModal').modal('hide')
+        fetch('/assignment/${content.id}', {
+            method: "DELETE",
+            headers: {'Content-Type': 'application/json'},
+        }).then(async response => {
+            return await parseResponse(response)
+        }).then(async res => {
+            if (res.error) {
+                throw new Error(res.error)
+            } else {
+                await new BsDialogs().ok('Assignment Deleted', 'Assignment was successfully deleted');
+                window.location.replace("/assignments")
+            }
+        }).catch(async error => {
+            await showError(error)
+        });
+    });
+</script>
+<body class="g-sidenav-show  bg-gray-200">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 fixed-start" style="background: white"
+       id="sidenav-main">
+    <div class="sidenav-header">
+        <a class="text-center justify-content-center align-items-center align-content-center align-self-center"
+           target="_blank">
+            <h3 class="ms-1 font-weight-bold">{} COPPIN</h3>
+        </a>
+    </div>
+    <hr class="horizontal light mt-0 mb-2">
+    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="../pages/dashboard.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">dashboard</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/tables.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Tables</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/billing.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">receipt_long</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Billing</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/virtual-reality.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">view_in_ar</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Virtual Reality</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/rtl.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                    </div>
+                    <span class="nav-link-text ms-1">RTL</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/notifications.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">notifications</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Notifications</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-8">Account pages</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/profile.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">person</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/sign-in.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">login</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Sign In</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/sign-up.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">assignment</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Sign Up</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+        <div class="mx-3">
+            <a class="btn btn-outline-primary mt-4 w-100"
+               href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Help</a>
+        </div>
+    </div>
+</aside>
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <div class="container-fluid py-4">
+        <form role="form" id="edit-assignment" method="post"
+              action="/assignments/<#if content.id??>${content.id}<#else >create</#if>">
+            <div id="assignment-container" class="row m-3 pb-4">
+                <div id="assignment-header" class="justify-content-between">
+                    <div style='max-width: 400px;'>
+                        <div class="pds-segmentedControl">
+                            <input id="sc-instructions" name="sc" type="radio" checked
+                                   data-gtm="filter" data-gtm-label="first" value="sc-instructions"/>
+                            <label for="sc-instructions">Instructions</label>
+                            <input id="sc-codes" name="sc" type="radio" data-gtm="filter"
+                                   data-gtm-label="second" value="sc-codes"/>
+                            <label for="sc-codes" style="padding-right: 0.5rem">Codes</label>
+                        </div>
+
+                    </div>
+                    <button class="codes btn btn-primary">+ add code</button>
+                    <div class="instructions">
+                        <button type="submit" class="instructions btn btn-primary">Save</button>
+                        <button class="ms-4 instructions btn btn-danger" onclick="$('#deleteModal').modal('show')"
+                                data-toggle="modal" data-target="#assignModal">Delete</button>
+                    </div>
+
+                </div>
+                <div class="instructions">
+                    <div id="instructions-details-container" class="mt-3">
+                        <div class="row">
+                            <div class="my-3 col">
+                                <label for="title" class="form-label"><h6>Title</h6></label>
+                                <input name="title" id="title" type="title" class="form-control">
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <label for="total-attempts" class="col-form-label"><h6>Total Attempts</h6></label>
+                                </div>
+                                <div class="col-auto">
+                                    <input type="number" id="total-attempts" class="form-control" min="0"
+                                           step="1"
+                                           onfocus="this.previousValue = this.value"
+                                           onkeydown="this.previousValue = this.value"
+                                           oninput="validity.valid || (value = this.previousValue)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h6 class="mt-4">Instructions</h6>
+                <div id="markdown-row" class="instructions">
+
+                    <div class="col-6 mb-3" style="height: 100%">
+                        <textarea id="instructions-editor"
+                                  name="instructions"
+                                  rows="5">
+                        </textarea>
+
+                    </div>
+                    <div class="col-6 " id="markdown-preview"></div>
+                </div>
+                <h6 class="mt-4 instructions">Success Message</h6>
+                <div id="success-row" class="instructions">
+
+                    <div class="col-6 mb-3" style="height: 100%">
+                        <textarea id="success-editor"
+                                  name="success"
+                                  rows="5">
+                        </textarea>
+
+                    </div>
+                    <div class="col-6 " id="success-preview"></div>
+                </div>
+
+                <h6 class="mt-4 instructions">Failure Message</h6>
+                <div id="failure-row" class="instructions">
+
+                    <div class="col-6 mb-3" style="height: 100%">
+                        <textarea id="failure-editor"
+                                  name="failure"
+                                  rows="5">
+                        </textarea>
+
+                    </div>
+                    <div class="col-6 " id="failure-preview"></div>
+                </div>
+                <div class="codes">
+                    <div>
+                        <table class="new-table">
+                            <thead>
+                            <tr>
+                                <th>LANGUAGE</th>
+                                <th>PRIMARY</th>
+                                <th>STARTER CODE</th>
+                                <th>SOLUTION CODE</th>
+                                <th>UNIT TEST</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Swift</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+             aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Delete Assignment</h5>
+                    </div>
+                    <div class="modal-body">
+                        By clicking delete, you will permanently delete this assignment. Any Xblock's
+                        referencing this assignment will cease to work.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Close
+                        </button>
+                        <button type="submit" class="btn btn-primary"
+                                id="delete-confirm"
+                        >
+                            Delete
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!--   Core JS Files   -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>-->
+<script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../assets/js/material-dashboard.min.js?v=3.0.4"></script>
+</body>
+
+</html>

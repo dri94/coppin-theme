@@ -1,0 +1,446 @@
+<!--
+=========================================================
+* Material Dashboard 2 - v3.0.4
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <title>
+        Material Dashboard 2 by Creative Tim
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"/>
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet"/>
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <link href="../assets/css/pds.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet"/>
+
+
+
+</head>
+<!-- Font Awesome 5.x Icon library (check themes to change this) -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+<!-- Krajee Markdown Editor Main Library Default Style -->
+<link href="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/css/markdown-editor.css" media="all"
+      rel="stylesheet" type="text/css"/>
+<!-- Highlight JS style provided with plugin for code styling -->
+<link href="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/highlight/highlight.min.css"
+      media="all" rel="stylesheet" type="text/css"/>
+<!-- jQuery JS Library -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- Twitter Emojis Plugin (if you need twitter emojis) -->
+<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"></script>
+<!-- Include DOM purify plugin if you need to purify HTML output (needed only if markdown-it HTML input
+   is allowed). This must be loaded before markdown-editor.js. -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/purify/purify.min.js"
+        type="text/javascript"></script>
+<!-- Markdown IT Main Library -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/markdown-it/markdown-it.min.js"
+        type="text/javascript"></script>
+<!-- Markdown IT Definition List Plugin -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/markdown-it/markdown-it-deflist.min.js"
+        type="text/javascript"></script>
+<!-- Markdown IT Footnote Plugin -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/markdown-it/markdown-it-footnote.min.js"
+        type="text/javascript"></script>
+<!-- Markdown IT Abbreviation Plugin -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/markdown-it/markdown-it-abbr.min.js"
+        type="text/javascript"></script>
+<!-- Markdown IT Subscript Plugin -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/markdown-it/markdown-it-sub.min.js"
+        type="text/javascript"></script>
+<!-- Markdown IT Superscript Plugin -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/markdown-it/markdown-it-sup.min.js"
+        type="text/javascript"></script>
+<!-- Markdown IT Underline/Inserted Text Plugin -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/markdown-it/markdown-it-ins.min.js"
+        type="text/javascript"></script>
+<!-- Markdown IT Mark Plugin -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/markdown-it/markdown-it-mark.min.js"
+        type="text/javascript"></script>
+<!-- Markdown IT SmartArrows Plugin -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/markdown-it/markdown-it-smartarrows.min.js"
+        type="text/javascript"></script>
+<!-- Markdown IT Checkbox Plugin -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/markdown-it/markdown-it-checkbox.min.js"
+        type="text/javascript"></script>
+<!-- Markdown IT Emoji Plugin -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/markdown-it/markdown-it-emoji.min.js"
+        type="text/javascript"></script>
+<!-- Highlight JS Main Plugin Library for code styling -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/plugins/highlight/highlight.min.js"
+        type="text/javascript"></script>
+<!-- Bootstrap Complete Bundle Library (including Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        type="text/javascript"></script>
+<!-- Krajee Markdown Editor Main Library -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/js/markdown-editor.js"
+        type="text/javascript"></script>
+<!-- Optionally include theme.js script or theme.css for a different theme if needed -->
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/themes/fa5/theme.js"
+        type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/krajee-markdown-editor@1.0.0/js/locales/en.js"
+        type="text/javascript"></script>
+<style>
+    #course-container {
+        border-radius: 1rem;
+        border: 0.125rem solid #DEE2E8;
+        background: #FFF
+    }
+
+    #course-header {
+        display: flex;
+        padding: 1.5rem 1rem;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    #summary-container {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        gap: 1.75rem;
+    }
+
+    #summary-completion-rate-container {
+        aspect-ratio: 1/1;
+        border-radius: 1rem;
+        background: #F0F2F5;
+        display: flex;
+        align-items: center;
+    }
+
+    #summary-completion-rate {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #summary-grade-container {
+        display: flex;
+        height: 100%;
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        flex: 1 0 0;
+        border-radius: 1rem;
+        background: #F0F2F5;
+    }
+
+    .summary-table {
+        padding: 1rem;
+        width: 100%;
+        table-layout: fixed;
+        border-radius: 1rem;
+    }
+
+    .summary-table thead th {
+        background: #2B5198;
+        color: #FFFFFF;
+        font-size: 14px;
+        font-style: normal;
+        padding: 0.25rem 1rem;
+        font-weight: 700;
+        letter-spacing: 0.28px;
+        height: 1rem;
+    }
+
+    .summary-table thead th:nth-child(1) {
+        border-radius: 1rem 0 0 0;
+    }
+
+    .summary-table thead th:nth-last-child(1) {
+        border-radius: 0 1rem 0 0;
+    }
+
+    .summary-table td {
+        font-size: 14px;
+        font-style: normal;
+        padding: 0.25rem;
+        font-weight: 400;
+        background: #FFF;
+    }
+
+    .summary-table tr td:nth-child(1) {
+        background: #F0F8FF;
+        color: #344767;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.125rem;
+    }
+
+    .summary-table td button {
+        margin-bottom: 0 !important;
+    }
+
+    .summary-table > tbody > tr:last-child td {
+        background: #2B5198;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        border-color: #FFF !important;
+        border-width: 1px;
+        border-style: solid none none none;
+        height: 0.25rem;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        const editor = $('#editor-b3').markdownEditor({
+            bsVersion: '5.1.1',
+            defaultMode: 'split'
+        });
+        function hideSection(sectionName) {
+            const divsToHide = document.getElementsByClassName(sectionName); //divsToHide is an array
+            for (let i = 0; i < divsToHide.length; i++) {
+                divsToHide[i].style.display = "none"; // depending on what you're doing
+                divsToHide[i].style.visibility = "hidden"; // or
+            }
+        }
+
+        function showSection(sectionName) {
+            const divsToHide = document.getElementsByClassName(sectionName);
+            for (let i = 0; i < divsToHide.length; i++) {
+                divsToHide[i].style.display = "inline"; // depending on what you're doing
+                divsToHide[i].style.visibility = "visible"; // or
+            }
+        }
+
+        if ($('#sc-codes').is(':checked')) {
+            hideSection("instructions")
+            showSection("codes")
+        } else {
+            hideSection("codes")
+            showSection("instructions")
+        }
+        $('input[type=radio][name=sc]').change(function () {
+            if (this.value === 'sc-codes') {
+                hideSection("instructions")
+                showSection("codes")
+            } else if (this.value === 'sc-instructions') {
+                hideSection("codes")
+                showSection("instructions")
+            }
+        });
+
+    });
+</script>
+<body class="g-sidenav-show  bg-gray-200">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 fixed-start" style="background: white"
+       id="sidenav-main">
+    <div class="sidenav-header">
+        <a class="text-center justify-content-center align-items-center align-content-center align-self-center"
+           target="_blank">
+            <h3 class="ms-1 font-weight-bold">{} COPPIN</h3>
+        </a>
+    </div>
+    <hr class="horizontal light mt-0 mb-2">
+    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="../pages/dashboard.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">dashboard</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/tables.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Tables</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/billing.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">receipt_long</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Billing</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/virtual-reality.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">view_in_ar</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Virtual Reality</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/rtl.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                    </div>
+                    <span class="nav-link-text ms-1">RTL</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/notifications.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">notifications</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Notifications</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-8">Account pages</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/profile.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">person</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/sign-in.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">login</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Sign In</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/sign-up.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">assignment</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Sign Up</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+        <div class="mx-3">
+            <a class="btn btn-outline-primary mt-4 w-100"
+               href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Help</a>
+        </div>
+    </div>
+</aside>
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <div class="container-fluid py-4">
+        <div id="course-container" class="row m-3 pb-4">
+            <div id="course-header" class="justify-content-between">
+                <div style='max-width: 400px;'>
+                    <div class="pds-segmentedControl">
+                        <input id="sc-instructions" name="sc" type="radio" checked
+                               data-gtm="filter" data-gtm-label="first" value="sc-instructions"/>
+                        <label for="sc-instructions">Instructions</label>
+                        <input id="sc-codes" name="sc" type="radio" data-gtm="filter"
+                               data-gtm-label="second" value="sc-codes"/>
+                        <label for="sc-codes" style="padding-right: 0.5rem">Codes</label>
+                    </div>
+
+                </div>
+                <button class="codes btn btn-primary">+ add code</button>
+                <button class="instructions btn btn-primary">Save</button>
+            </div>
+            <div class="instructions">
+                <div id="instructions-details-container" class="mt-3">
+                    <div class="row">
+                        <div class="my-3 col">
+                            <label for="title" class="form-label"><h6>Title</h6></label>
+                            <input name="title" id="title" type="title" class="form-control">
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <label for="date" class="col-form-label"><h6>Due Date</h6></label>
+                            </div>
+                            <div class="col-auto">
+                                <input name="date" type="date" id="date" class="form-control">
+                            </div>
+                            <div class="col-auto">
+                                <label for="attempts" class="col-form-label"><h6>Total Attempts</h6></label>
+                            </div>
+                            <div class="col-auto">
+                                <input type="number" id="attempts" class="form-control" min="0"
+                                       step="1"
+                                       onfocus="this.previousValue = this.value"
+                                       onkeydown="this.previousValue = this.value"
+                                       oninput="validity.valid || (value = this.previousValue)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="instructions mt-4">
+                <textarea id="editor-b3" name="editor-b3" class="form-control" rows="15"></textarea>
+
+            </div>
+            <div class="codes">
+                <div>
+                    <table class="new-table">
+                        <thead>
+                        <tr>
+                            <th>LANGUAGE</th>
+                            <th>PRIMARY</th>
+                            <th>STARTER CODE</th>
+                            <th>SOLUTION CODE</th>
+                            <th>UNIT TEST</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Swift</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!--   Core JS Files   -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>-->
+<script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../assets/js/material-dashboard.min.js?v=3.0.4"></script>
+</body>
+
+</html>

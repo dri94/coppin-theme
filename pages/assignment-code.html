@@ -1,0 +1,297 @@
+<!--
+=========================================================
+* Material Dashboard 2 - v3.0.4
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <title>
+        Material Dashboard 2 by Creative Tim
+    </title>
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"/>
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet"/>
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet"/>
+</head>
+
+<style>
+    #code-container {
+        padding: 1.5rem 1.5rem;
+        border-radius: 1rem;
+        border: 0.125rem solid #DEE2E8;
+        background: #FFF
+    }
+
+    #code-header {
+        display: flex;
+        align-items: flex-start;
+    }
+
+
+</style>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"
+        integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"
+      integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/swift/swift.min.js" integrity="sha512-KboFwQ+TWkkbWPaPoADuxTYNLkcFzhckndX0mquRYdRFT6Wn8evoAqpTqTVA9b4ayrH4KjX3WZgwHGHq6l1Ruw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $(document).ready(function () {
+        const codeMirrorConfig = {
+            lineNumbers: true,
+            mode: "text/x-swift",
+            lineWrapping: true,
+            indentWithTabs: true,
+            lineWiseCopyCut: true,
+            autoCloseBrackets: true,
+        }
+        const starterCodeTextArea = document.getElementById("starter-code-editor");
+        const starterCodeCodeMirror = CodeMirror(function (elt) {
+            starterCodeTextArea.parentNode.replaceChild(elt, starterCodeTextArea);
+        }, codeMirrorConfig);
+        starterCodeCodeMirror.setSize('100%');
+        const solutionCodeTextArea = document.getElementById("solution-code-editor");
+        const solutionCodeCodeMirror = CodeMirror(function (elt) {
+            solutionCodeTextArea.parentNode.replaceChild(elt, solutionCodeTextArea);
+        }, codeMirrorConfig);
+        solutionCodeCodeMirror.setSize('100%');
+        const unitTestsTextArea = document.getElementById("unit-tests-editor");
+        const unitTestsCodeMirror = CodeMirror(function (elt) {
+            unitTestsTextArea.parentNode.replaceChild(elt, unitTestsTextArea);
+        }, codeMirrorConfig);
+        unitTestsCodeMirror.setSize('100%');
+    });
+
+</script>
+<body class="g-sidenav-show  bg-gray-200">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 fixed-start" style="background: white"
+       id="sidenav-main">
+    <div class="sidenav-header">
+        <a class="text-center justify-content-center align-items-center align-content-center align-self-center"
+           target="_blank">
+            <h3 class="ms-1 font-weight-bold">{} COPPIN</h3>
+        </a>
+    </div>
+    <hr class="horizontal light mt-0 mb-2">
+    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="../pages/dashboard.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">dashboard</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/tables.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">table_view</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Tables</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/billing.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">receipt_long</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Billing</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/virtual-reality.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">view_in_ar</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Virtual Reality</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/rtl.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                    </div>
+                    <span class="nav-link-text ms-1">RTL</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/notifications.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">notifications</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Notifications</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-8">Account pages</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/profile.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">person</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/sign-in.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">login</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Sign In</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/sign-up.html">
+                    <div class="text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">assignment</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Sign Up</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+        <div class="mx-3">
+            <a class="btn btn-outline-primary mt-4 w-100"
+               href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Help</a>
+        </div>
+    </div>
+</aside>
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <div class="container-fluid py-4">
+        <form role="form" action="/assignments/${content.assignmentId}/codes/<#if content.id??>${content.id}</#if>" id="create-assignment-code" method="post">
+            <div id="code-container" class="row m-3 pb-4">
+                <div id="code-header" class="justify-content-between m-0 p-0">
+                    <h3>Assignment Code</h3>
+                    <button class="btn btn-primary">Save</button>
+                    <button class="ms-4 instructions btn btn-danger" onclick="$('#deleteModal').modal('show')"
+                            data-toggle="modal" data-target="#assignModal">Delete
+                    </button>
+                </div>
+                <#include "error.ftl">
+                <select class="form-select mb-3 p-2" name="language" aria-label=".form-select-lg example" style="max-width: 400px">
+                    <option selected>Select a language</option>
+                    <option value="1">APL</option>
+                    <option value="2">Java</option>
+                    <option value="3">Swift</option>
+                </select>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" name="primary" type="checkbox" role="switch" id="primary">
+                    <label class="form-check-label" for="primary">Primary Language</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" name="injectable" role="switch" id="injectable">
+                    <label class="form-check-label" for="injectable">Injectable</label>
+                </div>
+                <h6 class="mt-3 ms-0 ps-0">Starter Code</h6>
+                <div id="starter-code" class="ms-0 ps-0">
+                <textarea id="starter-code-editor"
+                          class="form-control"
+                          rows="5"></textarea>
+                </div>
+                <h6 class="mt-3 ms-0 ps-0">Solution Code</h6>
+                <div id="solution-code" class="ms-0 ps-0">
+                <textarea id="solution-code-editor"
+                          class="form-control"
+                          rows="5"></textarea>
+                </div>
+                <h6 class="mt-3 ms-0 ps-0">Unit Test Class</h6>
+                <div id="unit-tests" class="ms-0 ps-0">
+                <textarea id="unit-tests-editor"
+                          class="form-control"
+                          rows="5"></textarea>
+                </div>
+
+            </div>
+        </form>
+        <#if content.id??>
+        <div class="mt-3 d-flex justify-content-center">
+            <button id="delete-assignment" onclick="$('#deleteModal').modal('show')"
+                    data-bs-toggle="modal" data-bs-target="#assignModal"
+                    class="btn btn-lg btn-outline-danger" style="--bs-btn-border-color: transparent;">
+                Delete
+            </button>
+        </div>
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+             aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Delete Assignment Code</h5>
+                    </div>
+                    <div class="modal-body">
+                        By clicking delete, you will permanently delete this assignment code.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Close
+                        </button>
+                        <button type="submit" class="btn btn-primary"
+                                id="delete-confirm"
+                        >
+                            Delete
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </#if>
+    </div>
+</main>
+<!--   Core JS Files   -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+<script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+</script>
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="../assets/js/material-dashboard.min.js?v=3.0.4"></script>
+</body>
+
+</html>

@@ -108,6 +108,27 @@
         margin-bottom: 0 !important;
     }
 
+    /*----------Starts: CSS fro responsive screen---------*/
+    .bodyMenu, .sideBarMenu{
+        position: fixed;
+        left: 0.2rem;
+        top: 0.2rem;
+        z-index: 9999;
+        padding: 10px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidenav-header {
+        display: flex;
+        justify-content: space-around
+    }
+
+    .sideBarMenu {
+        background-color: black;
+    }
+    /*----------Ends: CSS fro responsive screen---------*/
 </style>
 <body class="g-sidenav-show  bg-gray-200">
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 fixed-start" style="background: white"
@@ -305,6 +326,79 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="../assets/js/material-dashboard.min.js?v=3.0.4"></script>
+<!----- Starts: Script for responsive screen ----->
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    var mainBody = document.querySelector('body');
+    var navIconDiv;
+    var isSideNavbarVisible = false;
+    
+    var sideNavbar = document.getElementById('sidenav-main');
+    var sideNavbarHeader = document.querySelector('.sidenav-header');
+    var sideNavbarMenuList = document.getElementById('sidenav-collapse-main');
+    var listItems = document.querySelectorAll("#sidenav-collapse-main ul li a");
+    
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        };
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+
+    function insertNavIcon() {
+        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var navIcon = document.createElement('i');
+        navIcon.className = 'material-icons opacity-10';
+        navIcon.textContent = 'menu';
+        
+        if (screenWidth < 1220) {
+            if (!navIconDiv) {
+                navIconDiv = document.createElement('div');
+                navIconDiv.className = 'sideBarMenu text-center me-2 d-flex align-items-center justify-content-center';
+                navIconDiv.onclick = toggleMenu;
+                navIconDiv.appendChild(navIcon);
+                var firstChild = sideNavbarHeader.firstElementChild;
+                sideNavbarHeader.insertBefore(navIconDiv, firstChild);
+                
+                navIconDivBody = document.createElement('div');
+                navIconDivBody.className = 'bodyMenu text-center me-2 d-flex align-items-center justify-content-center';
+                navIconDivBody.onclick = toggleMenu;
+                navIconDivBody.appendChild(navIcon);
+                var firstBodyChild = mainBody.firstChild;
+                mainBody.insertBefore(navIconDivBody,firstBodyChild);
+            }
+        } else {
+            if (navIconDiv && navIconDiv.parentNode === sideNavbarHeader) {
+                sideNavbarHeader.removeChild(navIconDiv);
+                navIconDiv = null;
+            }
+        }
+    }
+    
+    insertNavIcon();
+    
+    window.addEventListener('resize', function () {
+        insertNavIcon();
+        location.reload();
+    });
+    
+    function toggleMenu() {
+        if (!isSideNavbarVisible) {
+            sideNavbar.style.left = '70vw';
+            navIconDiv.innerHTML = '<i class="material-icons opacity-10">menu_open</i>';
+            isSideNavbarVisible = true;
+        } else {
+            navIconDiv.innerHTML = '<i class="material-icons opacity-10">menu</i>';
+            sideNavbar.style.left = '-70vw';
+            isSideNavbarVisible = false;
+        }
+    }
+
+    if (navIconDiv) {
+        navIconDiv.onclick = toggleMenu;
+    }
+</script>
+<!----- Ends: Script for responsive screen ----->
 </body>
 
 </html>
